@@ -5,6 +5,8 @@ import store from './features/store'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './routes/router.tsx'
 
+import "./styles/main.css"
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Provider store={store}>
