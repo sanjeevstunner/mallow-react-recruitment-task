@@ -1,8 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './auth/authSlice';
 
 // Placeholder root reducer (add feature reducers here)
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    auth: authReducer,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
