@@ -29,7 +29,7 @@ function Login() {
 
   useEffect(() => {
     if (token) {
-      navigate('/home', { replace: true });
+      navigate('/users', { replace: true });
     }
   }, [token, navigate]);
 

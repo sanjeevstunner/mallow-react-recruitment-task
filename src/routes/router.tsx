@@ -13,9 +13,10 @@ import {
     createRoutesFromElements(
       <>
         <Route index element={<Navigate to="/users" />} />
-        <Route path="/home" element={<App />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/users" element={<Users />} />
+        <Route element={<App />}>
+          <Route path="/users" element={<Users />} />
+        </Route>
       </>
     )
   );

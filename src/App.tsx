@@ -1,21 +1,22 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { selectToken } from './features/auth/authSelectors';
+import { Outlet } from 'react-router-dom';
+import { Header } from './components/Header';
 
 function App() {
-  const token = useSelector(selectToken);
-  const navigate = useNavigate();
+  // TODO: Replace with real user/auth logic
+  const user = { name: 'Jane Doe', email: 'jane@example.com' };
+  const handleLogout = () => {
+    localStorage.clear()
+    window.location.href = '/login';
+  };
 
-  useEffect(() => {
-    if (!token) {
-      navigate('/login', { replace: true });
-    }
-  }, [token, navigate]);
-
-  if (!token) return null;
-
-  return <></>
+  return (
+    <div className="min-h-screen flex flex-col bg-background">
+      <Header user={user} onLogout={handleLogout} />
+      <main className="flex-1 w-full max-w-5xl mx-auto px-2 sm:px-4 py-4">
+        <Outlet />
+      </main>
+    </div>
+  );
 }
 
-export default App
+export default App;

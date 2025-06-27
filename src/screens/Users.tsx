@@ -92,7 +92,7 @@ const Users: React.FC = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto py-8">
+    <section className="w-full max-w-3xl mx-auto bg-background rounded-lg shadow p-2 sm:p-4">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-2xl font-bold">User Management</h1>
         <Button
@@ -141,7 +141,7 @@ const Users: React.FC = () => {
         onEdit={dialogMode === 'view' ? () => dispatch(setDialogMode('edit')) : handleEditAction}
         onDelete={dialogMode === 'view' ? () => dispatch(setDialogMode('delete')) : handleDelete}
       />
-    </div>
+    </section>
   );
 };
 
