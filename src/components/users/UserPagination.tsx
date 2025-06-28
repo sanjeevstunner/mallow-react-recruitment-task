@@ -29,7 +29,6 @@ const UserPagination: React.FC<UserPaginationProps> = ({ page, totalPages, onPag
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious
-            asChild
             onClick={() => page > 1 && onPageChange(page - 1)}
             aria-disabled={page === 1}
             tabIndex={page === 1 ? -1 : 0}
@@ -54,7 +53,6 @@ const UserPagination: React.FC<UserPaginationProps> = ({ page, totalPages, onPag
         )}
         <PaginationItem>
           <PaginationNext
-            asChild
             onClick={() => page < totalPages && onPageChange(page + 1)}
             aria-disabled={page === totalPages}
             tabIndex={page === totalPages ? -1 : 0}

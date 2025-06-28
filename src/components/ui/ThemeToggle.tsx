@@ -1,4 +1,3 @@
-import * as React from "react";
 import { MoonIcon, SunIcon, LaptopIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./button";

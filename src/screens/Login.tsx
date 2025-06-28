@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
@@ -8,6 +8,7 @@ import { Typography } from '@/components/ui/typography';
 import { Input } from '@/components/ui/input';
 import { login } from '@/features/auth/authThunks';
 import { selectLoading, selectError, selectToken } from '@/features/auth/authSelectors';
+import { useAppDispatch } from '@/features/store';
 
 interface LoginFormInputs {
   email: string;
@@ -15,7 +16,7 @@ interface LoginFormInputs {
 }
 
 function Login() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const loading = useSelector(selectLoading);
   const error = useSelector(selectError);
