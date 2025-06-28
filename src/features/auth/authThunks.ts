@@ -21,7 +21,7 @@ export const login = createAsyncThunk<
       );
       localStorage.setItem('email', payload.email);
       return response.data.token;
-    } catch (error: any) {
+    } catch (error: unknown) {
       let errorMsg = "Login failed";
       if (isAxiosError(error) && error.response?.data && typeof error.response.data.error === "string") {
         errorMsg = error.response.data.error;
@@ -31,7 +31,7 @@ export const login = createAsyncThunk<
   }
 );
 
-function isAxiosError(error: any): error is AxiosError<{ error: string }> {
+function isAxiosError(error: unknown): error is AxiosError<{ error: string }> {
   return (
     typeof error === "object" &&
     error !== null &&

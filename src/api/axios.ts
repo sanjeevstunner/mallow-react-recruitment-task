@@ -37,15 +37,15 @@ class AxiosService {
     return this.instance.get<T>(url, config);
   }
 
-  static post<T = unknown>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  static post<T = unknown>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.instance.post<T>(url, data, config);
   }
 
-  static put<T = unknown>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  static put<T = unknown>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.instance.put<T>(url, data, config);
   }
 
-  static patch<T = unknown>(url: string, data?: any, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  static patch<T = unknown>(url: string, data?: unknown, config?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.instance.patch<T>(url, data, config);
   }
 

@@ -12,6 +12,7 @@ export const fetchUsers = createAsyncThunk<
     const response = await axios.get<UserListResponse>(`/api/users?page=${page}`);
     return response.data;
   } catch (error: any) {
+    console.warn('error', error, "type", typeof error)
     return rejectWithValue(error?.response?.data?.error || 'Failed to fetch users');
   }
 });
