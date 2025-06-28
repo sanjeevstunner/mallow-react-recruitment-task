@@ -34,6 +34,9 @@ function Login() {
     }
   }, [token, navigate]);
 
+  // Prevent rendering if token exists (redirecting)
+  if (token) return null;
+
   const onSubmit = (data: LoginFormInputs) => {
     dispatch(login(data));
   };

@@ -19,6 +19,7 @@ export const login = createAsyncThunk<
         "/api/login",
         payload
       );
+      localStorage.setItem('email', payload.email);
       return response.data.token;
     } catch (error: any) {
       let errorMsg = "Login failed";

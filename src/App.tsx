@@ -1,17 +1,31 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { Header } from './components/Header';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectToken } from './features/auth/authSelectors';
+import { logout } from './features/auth/authSlice';
+import { useEffect } from 'react';
 
 function App() {
-  // TODO: Replace with real user/auth logic
-  const user = { name: 'Jane Doe', email: 'jane@example.com' };
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const token = useSelector(selectToken);
+  const email = localStorage.getItem('email');
+
   const handleLogout = () => {
-    localStorage.clear()
-    window.location.href = '/login';
+    dispatch(logout());
+    localStorage.removeItem('email');
+    navigate('/login', { replace: true });
   };
+
+  useEffect(() => {
+    if (!token) {
+      navigate('/login', { replace: true });
+    }
+  }, [token, navigate]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      <Header user={user} onLogout={handleLogout} />
+      <Header user={email ? { email } : undefined} onLogout={handleLogout} />
       <main className="flex-1 w-full max-w-5xl mx-auto px-2 sm:px-4 py-4">
         <Outlet />
       </main>
